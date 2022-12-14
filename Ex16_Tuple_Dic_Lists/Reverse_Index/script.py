@@ -1,12 +1,5 @@
 from collections import defaultdict
 
-# Dataset contains data that will be reverse indexed
-# dataset = [
-#     "Hello world",
-#     "This is the WORLD",
-#     "hello again"
-#  ] 
-
 dataset = [
     "Hello     world",
     "This is the    WORLD",
@@ -35,14 +28,3 @@ def reverse_index(dataset):
 print(reverse_index(dataset))
 # for i in reverse_index(dataset).items():
 #     print(i)
-
-from their_script import reverse_index2
-dataset2 = [
-    "Hello     world",
-    "This is the    WORLD",
-    "hello    again"
- ] 
-print(reverse_index2(dataset2))
-print(reverse_index(dataset) == reverse_index2(dataset2))
-
-
