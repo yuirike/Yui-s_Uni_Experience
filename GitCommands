@@ -1,0 +1,3 @@
+git add <FILE NAME>
+git commit -m <MESSAGE> 
+git push origin master 
