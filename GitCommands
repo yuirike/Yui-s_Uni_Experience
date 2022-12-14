@@ -1,3 +1,13 @@
 git add <FILE NAME>
 git commit -m <MESSAGE> 
 git push origin master 
+
+
+From Different Location
+git clone $REPO_URL repo
+cd repo
+git add <MODIFIED FILES> (let us hope that VsCode tracks them)
+git commit -m <MESSAGE>
+git push origin master
+
+When you want to undo <git add>, use <git reset <FILE NAME>>
