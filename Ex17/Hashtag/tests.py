@@ -11,13 +11,16 @@ from script import analyze
 # Feel free to add additional test cases here. All test cases
 # will be executed as part of the "Test & Run".
 
+from their_script import analyze2
+from script import analyze
 
 class PublicTestSuite(TestCase):
 
     def test_1(self):
-        actual = analyze(["hi #weekend",
+        input = analyze(["hi #weekend",
                           "good morning #zurich #limmat",
                           "spend my #weekend in #zurich",
                           "#zurich <3"])
-        expected = {'weekend': 2, 'zurich': 3, 'limmat': 1}
+        actual = analyze(input)
+        expected = analyze2(input)
         self.assertEqual(expected, actual)
