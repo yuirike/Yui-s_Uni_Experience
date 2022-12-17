@@ -5,7 +5,7 @@
 # You may introduce private/protected utility methods though.
 class ProfanityFilter:
     def __init__(self, keywords, template):
-        self.__keywords = sorted([x.lower() for x in keywords], key=len)
+        self.__keywords = keywords
         self.__template = template
 
     def filter(self, msg):
