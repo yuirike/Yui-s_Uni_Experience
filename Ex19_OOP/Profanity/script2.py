@@ -9,7 +9,6 @@ class ProfanityFilter:
         self.__template = template
 
     def filter(self, msg):
-        censor_dictionary = {}
         censor = [x for x in self.__template]
         censored_words = []
         # key_w = self.__keywords.copy()
@@ -30,9 +29,8 @@ class ProfanityFilter:
         new_msg = msg.lower()
         for i in self.__keywords:
             if i in new_msg:
-                temp = [x for x in censored_words if len(x)==len(i)]
+                temp = [x for x in censored_words if len(x) == len(i)]
                 new_msg = new_msg.replace(i, temp[0])
-
 
         output = []
         for a, b in zip(msg, new_msg):
@@ -52,4 +50,3 @@ if __name__ == '__main__':
     offensive_msg = "mastard duck shot test?"
     clean_msg = f.filter(offensive_msg)
     print(clean_msg)  # abc defghi ?#$?#$? jklmno
-
