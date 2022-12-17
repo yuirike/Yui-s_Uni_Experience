@@ -5,7 +5,7 @@
 # You may introduce private/protected utility methods though.
 class ProfanityFilter:
     def __init__(self, keywords, template):
-        self.__keywords = keywords
+        self.__keywords = sorted([x.lower() for x in keywords])
         self.__template = template
 
     def filter(self, msg):
@@ -25,6 +25,7 @@ class ProfanityFilter:
             censored_words.append("".join(censored_word))
 
         censored_words = list(set(censored_words))
+        
 
         new_msg = msg.lower()
         for i in self.__keywords:
@@ -46,7 +47,9 @@ class ProfanityFilter:
 # You can play around with your implementation in the body of the following 'if'.
 # The contained statements will be ignored while evaluating your solution.
 if __name__ == '__main__':
-    f = ProfanityFilter(["mastard", "duck", "shot", "batch"], "?#$")
-    offensive_msg = "mastard duck shot test?"
+    mess = ["mastard", "duck", "shot", "batch"]
+    mess = list(set(mess))
+    f = ProfanityFilter(mess, "?#$")
+    offensive_msg = "SHOT! That mastArd doesn't no what the duck he's doing!"
     clean_msg = f.filter(offensive_msg)
-    print(clean_msg)  # abc defghi ?#$?#$? jklmno
+    print(clean_msg)  

@@ -25,7 +25,16 @@ class ProfanityFilter:
             # add that joined list to censored_words.
             censored_words.append("".join(censored_word))
 
-        for a, b in zip(self.__keywords, censored_words):
+        key_w = self.__keywords.copy()
+        key_w = sorted(key_w, key=len)
+        censored_words = sorted(censored_words, key=len)
+        '''
+        I'm aware adding key_w or sorting censored_words 
+        might be unnecessary but I srsly don't know why
+        ACCESS doesn't accept this, oof.
+        '''
+
+        for a, b in zip(key_w, censored_words):
             censor_dictionary[a] = b
 
         new_msg = msg.lower()
@@ -48,7 +57,7 @@ class ProfanityFilter:
 # The contained statements will be ignored while evaluating your solution.
 if __name__ == '__main__':
     f = ProfanityFilter(["mastard", "duck", "shot", "batch"], "?#$")
-    offensive_msg = "abc defghi mastard jklmno"
+    offensive_msg = "SHOT! That mastArd doesn't no what the duck he's doing!"
     clean_msg = f.filter(offensive_msg)
     print(clean_msg)  # abc defghi ?#$?#$? jklmno
 

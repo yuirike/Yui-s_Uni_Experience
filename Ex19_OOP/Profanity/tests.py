@@ -55,6 +55,15 @@ class PublicTestSuite(TestCase):
         expected = "I ******** him in the face!"
         self.assertEqual(expected, actual)
 
+    def test_Subword(self):
+        mess = ["duck", "shot", "batch", "mastard"]
+        mess = list(set(mess))
+        f = ProfanityFilter(mess, "*")
+        msg = "I duckshot him in the face!"
+        actual = f.filter(msg)
+        expected = "I ******** him in the face!"
+        self.assertEqual(expected, actual)
+
 
     # This current test suite only contains one very basic test case. By now,
     # you have some experience in writing test cases. We strongly ecncourage
