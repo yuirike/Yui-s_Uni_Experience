@@ -13,6 +13,7 @@ def is_number(num):
     except ValueError:
         return False
 
+
 def get_average_grade(path):
     if not os.path.exists(path):
         return None
@@ -23,12 +24,16 @@ def get_average_grade(path):
         return 0.0
 
     data = [x.strip() for x in data]
+    # remove the hashtag
     data = [x.replace(x[x.find('#'):], "") if '#' in x else x for x in data]
+    # only look at the stuff after the colon
     data = [x[x.find(':')+1:] if ':' in x else x for x in data]
+    # strip again for good measure, lol
     data = [x.strip() for x in data]
+    # turn the element to a float if the string is a float/integer.
     data = [float(x) for x in data if is_number(x)]
     avg = sum(data)/len(data)
-    return avg
+    return data
 
 
 # The following line calls the function and prints the return
@@ -36,5 +41,4 @@ def get_average_grade(path):
 # However, we encourage you to write tests, because then you
 # can easily test many different values on every "Test & Run"!
 # print(get_average_grade("public/my_grades.txt"))
-
 print(get_average_grade("my_grades.txt"))
