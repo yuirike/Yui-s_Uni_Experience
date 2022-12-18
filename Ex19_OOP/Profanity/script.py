@@ -28,6 +28,9 @@ class ProfanityFilter:
         key_w = self.__keywords.copy()
         key_w = sorted(key_w, key=len)
         censored_words = sorted(censored_words, key=len)
+        key_w.reverse()
+        censored_words.reverse()
+
         '''
         I'm aware adding key_w or sorting censored_words 
         might be unnecessary but I srsly don't know why
@@ -56,21 +59,8 @@ class ProfanityFilter:
 # You can play around with your implementation in the body of the following 'if'.
 # The contained statements will be ignored while evaluating your solution.
 if __name__ == '__main__':
-    f = ProfanityFilter(["mastard", "duck", "shot", "batch"], "?#$")
-    offensive_msg = "SHOT! That mastArd doesn't no what the duck he's doing!"
+    f = ProfanityFilter(['ab','abcd','abc'], "?#$")
+    offensive_msg = "aaa abcd ccc"
     clean_msg = f.filter(offensive_msg)
     print(clean_msg)  # abc defghi ?#$?#$? jklmno
 
-
-# Figuring out repeated loops.
-censor = "kek"
-word = "MyBad"
-out = []
-censor = [x for x in censor]
-
-for i in word:
-    out.append(censor[0])
-    censor.append(censor[0])
-    censor.pop(0)
-
-print(len(word) == len(out))
