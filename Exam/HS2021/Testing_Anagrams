@@ -1,0 +1,44 @@
+import unittest
+
+
+def are_anagrams(word1, word2):
+    pass
+
+class MyTestSuite(unittest.TestCase):
+    def test_are_ana1(self):
+        a = "Dog"
+        b = "God"
+        self.assertTrue(a,b)
+
+    def test_are_ana2(self):
+        a = "The Meaning of Life."
+        b = "The fine game of nil!"
+        self.assertTrue(a,b)
+    
+    def test_casing(self):
+        a = "The Meaning of LIFE."
+        b = "The fine game of nil!"
+        self.assertTrue(a,b)
+
+    def test_letters(self):
+        a = "aaabz"
+        b = "aaabb"
+        self.assertFalse(a,b)
+
+    def test_letters(self):
+        a = ",/0"
+        b = "0/,"
+        self.assertTrue(a,b)
+
+
+    def test_non_ana(self):
+        a = "MeaningLife"
+        b = "Word"
+        self.assertFalse(a,b)
+
+    def test_type_check(self):
+        with self.assertRaises(TypeError):
+            are_anagrams(True, "hoot")
+        with self.assertRaises(TypeError):
+            are_anagrams("hoot", True)
+

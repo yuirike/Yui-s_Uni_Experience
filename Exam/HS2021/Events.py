@@ -39,17 +39,18 @@ class Event:
         return self.occupied() < other.occupied()
 
 
-P = Event("Name", 10)
-P.enter(5, "Jason")
-print(P.occupied())
-print(P.empty())
-print(P.get(5))
 
-
-A = Event("Kek", 10)
-A.enter(5, "Bea")
-print(A.occupied())
-print(A.empty())
-print(A.get(5))
-
-print(A == P)
+#Assertions
+e1 = Event("Name", 150)
+e1.enter(45, "Alice")
+assert e1.get(45) == "Alice"
+e1.enter(42, "Bob")
+assert e1.occupied() == 2
+assert e1.empty() == 148
+e2 = Event("Nalo", 40)
+assert e2.get(40) == None
+e2.enter(1, "Andrea")
+e2.enter(2, "Beatrice")
+assert e2 == e1
+e2.enter(20, "Charly")
+assert e2 > e1

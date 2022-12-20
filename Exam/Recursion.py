@@ -58,11 +58,6 @@ print(recursive_join(" <0> ", ["a","b","c","d","e"]))
 
 
 
-p = "main Text main"
-print(p[0:p.rfind("main")])
-
-
-
 #Sum of a list of numbers.
 def recsum(l):
     if l == []:

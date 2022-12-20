@@ -38,29 +38,19 @@ class School:
         return self.__success
 
 
-a = Student("Jason")
-b = School("B-Tier Academy", [2,3])
-b.educate(a)
 
-
-# a = Student("Ueli")
-# print(a.get_name() == "Ueli")
-# print(a.get_year() == 1)
-# s1 = School("Mätteliwise", [1,2,3,4,5,6])
-# s2 = School("Blüemlihof", [1,2,3,4,5,6])
-# print(s1.get_taught() == 0)
-
-# s1.educate(a)
-# print(a.get_year() in [1, 2])
-# print(s1.get_taught() in [1])
-#s2.educate(a)
-#assert a.get_year() in [1, 2, 3]
-#assert s2.get_taught() in [0, 1]
-#assert s2.national_taught in [0, 1, 2]
-
-
-
-        
-
-
+a = Student("Ueli")
+assert a.get_name() == "Ueli"
+assert a.get_year() == 1
+s1 = School("Mätteliwise", [1,2,3,4,5,6])
+s2 = School("Blüemlihof", [1,2,3,4,5,6])
+assert s1.get_taught() == 0
+# the following calls have random outcomes
+s1.educate(a)
+assert a.get_year() in [1, 2]
+assert s1.get_taught() in [0, 1]
+s2.educate(a)
+assert a.get_year() in [1, 2, 3]
+assert s2.get_taught() in [0, 1]
+assert s2.national_taught in [0, 1, 2]
 
