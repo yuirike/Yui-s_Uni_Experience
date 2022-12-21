@@ -26,4 +26,3 @@ def decode(word, add, shift):
     changed_word = "".join(changed) #I'm aware that this doesn't work...
     return bef_ord_word, word, changed_word
 
-print(encode("hello", "xyz", -2))
