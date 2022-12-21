@@ -1,5 +1,6 @@
 def stats(students):
     matric = [x for x in students.keys()]
+    items = [x for x in students.items()]
     val_list = []
     total_values = []
     avg_grade_student = {}
@@ -21,39 +22,22 @@ def stats(students):
         subjects_grades.extend(list)
 
 
-
-    # subjects = set([x[0] for x in subjects_grades])
-    # subjects = [x for x in subjects]
-    # grades = []
-    # for sub in subjects:
-    #     single_grade = []
-    #     for sub2 in subjects_grades:
-    #         if sub == sub2[0]:
-    #             single_grade.append(sub2[1])
-    #     grades.append(single_grade)
-
-    # grades = [round( (sum(x)/len(x)), 2) for x in grades]
-
-
     for student, avg in zip(matric, total_values):
         avg_grade_student[student]=avg
-
-    # for subject, grade in zip(subjects, grades):
-    #     avg_grade_subject[subject]=grade
-
+   
     
-    
-    d = {}
-    for key, val in subjects_grades:
-        d.setdefault(key, []).append(val)
+    avg_grade_per_subject = {}
+    for subject, grade in subjects_grades:
+        avg_grade_per_subject.setdefault(subject, []).append(grade)
 
-    for i in d.keys():
-        d[i]=  round( sum(d[i])/len(d[i]) ,2)
+    for i in avg_grade_per_subject.keys():
+        avg_grade_per_subject[i]=  round( sum(avg_grade_per_subject[i])/len(avg_grade_per_subject[i]) ,2)
 
+    # student_avg_grade = {}
+    # for i in students.keys():
+    #     student_avg_grade[i] = [list(x) for x in students[i]]
 
-
-    return avg_grade_student, d
-
+    return avg_grade_student, avg_grade_per_subject
 
 
 
@@ -62,11 +46,11 @@ raw = {"12-345-678": [("Math", 5.5),  ("Biology", 5.75), ("Latin", 4.25)],
     "01-111-111": [("Latin", 4.5), ("Biology", 4.75), ("French", 3.00)],
     }
 
-# print(stats(raw))
+print(stats(raw))
 
 
-students, subjects = stats(raw)
-assert(len(students) == 3)
-assert(len(subjects) == 4)
-assert(students["12-345-678"] == 5.17)
-assert(subjects["Latin"] == 4.08)
+# students, subjects = stats(raw)
+# assert(len(students) == 3)
+# assert(len(subjects) == 4)
+# assert(students["12-345-678"] == 5.17)
+# assert(subjects["Latin"] == 4.08)
